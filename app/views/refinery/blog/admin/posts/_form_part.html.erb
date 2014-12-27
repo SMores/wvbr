@@ -1,0 +1,34 @@
+<div class='page_part' id='page_part_body'>
+  <%= f.text_area :body, :rows => 20, :class => "wysiwyg widest", :data => { :body_class => f.to_param } -%>
+  <div class="rightbar">
+    <ul>
+      <li><%= link_to "Images", "#images_container" %></li>
+      <li><%= link_to "Files", "#files_container" %></li>
+    </ul>
+
+    <div id="files_container">
+      <p>
+        <b>Drag and drop these files into the editor:</b>
+      </p>
+      <ul>
+        <% Refinery::Resource.all.each do |resource| %>
+          <li><%= link_to resource.title, resource.url %></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div id="images_container">
+      <p>
+        <b>Drag and drop these images into the editor:</b>
+      </p>
+      <ul>
+        <% Refinery::Image.all.each do |image| %>
+          <li>
+            <div class="box_of_holding"><%= image_tag image.url %></div>
+            <%= image.title %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

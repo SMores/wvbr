@@ -1,0 +1,18 @@
+<%= raw @page.content_for(:banner_ad) %>
+<div>
+  <h3>Now Playing</h3>
+  <p>This should be currently playing stuff and a link to history</p>
+</div>
+<div>
+  <h3>WVBR News</h3>
+  <%= render partial: 'refinery/news/items/recent_posts' %>
+</div>
+<div>
+  <h3>Ithaca Sports</h3>
+  <p>This will at some point have the latest sports blog.</p>
+</div>
+<div>
+  <h3>From Our DJs</h3>
+  <%= render partial: 'refinery/blog/shared/post', collection: @posts %>
+</div>
+<%= raw @page.content_for(:footer_ad) %>
