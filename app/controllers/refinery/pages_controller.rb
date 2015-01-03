@@ -39,6 +39,16 @@ module Refinery
       render_with_templates?
     end
 
+    def personalities
+      @personalities = Refinery::User.all
+      render_with_templates?
+    end
+
+    def shows
+      @shows = Refinery::Blog::Category.all
+      render_with_templates?
+    end
+
   protected
 
     def requested_friendly_id
@@ -78,6 +88,10 @@ module Refinery
                   Refinery::Page.where(:link_url => '/').first
                 when "show"
                   Refinery::Page.find_by_path_or_id(params[:path], params[:id])
+                when "personalities"
+                  Refinery::Page.where(slug: 'personalities').first
+                when "shows"
+                  Refinery::Page.where(slug: 'shows').first
                 end
       @page || (error_404 if fallback_to_404)
     end
