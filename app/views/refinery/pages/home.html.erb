@@ -12,7 +12,7 @@
   <p>This will at some point have the latest sports blog.</p>
 </div>
 <div>
-  <h3>From Our DJs</h3>
+  <h3><%= link_to "From Our DJs", Refinery::Blog.page_url %></h3>
   <%= render partial: 'refinery/blog/shared/post', collection: @posts %>
 </div>
 <%= raw @page.content_for(:footer_ad) %>
