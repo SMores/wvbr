@@ -21,3 +21,24 @@
 
 en:
   hello: "Hello world"
+  refinery:
+    blog:
+      admin:
+        categories:
+          category:
+            edit: Edit this show
+            delete: Delete this show forever
+          index:
+            no_items_yet: 'There are no shows yet. Click "%{create}" to add your first show.'
+        submenu:
+          categories:
+            title: Shows
+            new: Create new show
+      shared:
+        categories:
+          title: Shows
+      posts:
+        post:
+          filled_in: from
+        show:
+          filled_in: from
