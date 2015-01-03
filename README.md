@@ -8,7 +8,7 @@ This app primarily utilizes [Refinery](http://refinerycms.com) for content manag
 
 Adding page parts
 -----------------
-By default all pages are created with a Body and a Side Body. If additional parts are needed: 
+By default all pages are created with a Body and a Side Body. If additional parts are needed (for example, an ad): 
 1. Go to the admin center and click on the pages tab
 2. Click the edit icon for the page that you wish to edit
 3. Click the small, green `+` under the title of the page
@@ -18,3 +18,6 @@ By default all pages are created with a Body and a Side Body. If additional part
 Overwriting views
 -----------------
 If you find the need to overwrite a particular view, simply run `rake refinery:override view=refinery/pages/some_view` where `some_view` is the name of the view to be overwritten.
+
+*note:* If the view that you wish to override is within a Refinery engine (say the Blog engine, for example), you'll find it within `refinery/blog/some_view`.
+The full command for the form for a new blog post in the admin center, for example, would be `rake refinery:override view=refinery/blog/admin/posts/_form`. The full path for any file can be found at the respective engine's GitHub repo (for Blog, that would be [https://github.com/refinery/refinerycms-blog](https://github.com/refinery/refinerycms-blog)). These are all listed in the Gemfile.
