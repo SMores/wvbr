@@ -13,7 +13,10 @@ module Refinery
     # This action is usually accessed with the root path, normally '/'
     def home
       @items = Refinery::News::Item.latest(5)
-      @posts = Refinery::Blog::Post.where("published_at < ?", Time.now).limit(5)
+      # Grab 50 posts so that you'll always have at loast 5 sports posts (hopefully)
+      all_posts = Refinery::Blog::Post.where("published_at < ?", Time.now).limit(50)
+      @posts = all_posts.reject { |p| p.categories.first && p.categories.first.title == "Sports" }
+      @sports = all_posts.select { |p| p.categories.first && p.categories.first.title == "Sports" }
       render_with_templates?
     end
 
@@ -44,8 +47,14 @@ module Refinery
       render_with_templates?
     end
 
+    def sports
+      posts = Refinery::Blog::Post.all
+      @sports = posts.select { |p| p.categories.first && p.categories.first.title == "Sports" }
+      render_with_templates?
+    end
+
     def shows
-      @shows = Refinery::Blog::Category.all
+      @shows = Refinery::Blog::Category.where.not(title: "Sports").where.not(title: "WVBR")
       render_with_templates?
     end
 
@@ -92,6 +101,8 @@ module Refinery
                   Refinery::Page.where(slug: 'personalities').first
                 when "shows"
                   Refinery::Page.where(slug: 'shows').first
+                when "sports"
+                  Refinery::Page.where(slug: 'sports').first
                 end
       @page || (error_404 if fallback_to_404)
     end

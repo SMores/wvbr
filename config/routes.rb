@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   Refinery::Core::Engine.routes.prepend do
     get '/music/personalities', :to => 'pages#personalities'
     get '/music/shows', to: 'pages#shows'
+    get '/sports', to: 'pages#sports'
   end
 
 

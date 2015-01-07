@@ -9,7 +9,7 @@
 </div>
 <div>
   <h3>Ithaca Sports</h3>
-  <p>This will at some point have the latest sports blog.</p>
+  <%= render partial: 'refinery/blog/shared/post', collection: @sports %>
 </div>
 <div>
   <h3><%= link_to "From Our DJs", Refinery::Blog.page_url %></h3>
