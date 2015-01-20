@@ -27,3 +27,5 @@ Notes about the code
 * It's less than ideal, but throughout the codebase, a Refinery::Blog::Category is the model for the Shows on the frontend. This is probably something that can (and maybe should) be refactored in the future.
 
 * On a similar note, Sports is a "special" show in that it doesn't appear listed with other shows, and any post with the Sports show will show up on the Sports page.
+
+* If you want to make any database changes locally, you'll need to install the taps gem _on your machine_ with `gem install taps`. Then use `heroku pg:push` to copy the db data to the heroku app.

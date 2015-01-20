@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.1.2'
+
 # Refinery news engine
 gem "refinerycms-news", git: 'https://github.com/refinery/refinerycms-news', branch: 'master'
 # Refinery blogging engine
