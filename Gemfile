@@ -22,6 +22,7 @@ end
 # Use Postgres on Heroku
 group :production do
   gem 'pg'
+  gem 'fog'
 end
 # Use Sass for stylesheets
 gem 'sass-rails', '~> 4.0.3'
