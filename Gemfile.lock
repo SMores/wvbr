@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/botandrose/refinerycms-ckeditor.git
+  revision: bcfde5802908759c8c5429b24f13a0a6bb066c91
+  branch: master
+  specs:
+    refinerycms-ckeditor (0.2.0)
+
+GIT
   remote: git://github.com/refinery/refinerycms-i18n.git
   revision: 6d7f6aef7c161cc0bc3a5ba2c9deee18319dfd8d
   branch: master
@@ -284,7 +291,6 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
-    refinerycms-ckeditor (0.2.0)
     refinerycms-settings (3.0.0)
       friendly_id (~> 5.0, >= 5.0.1)
       refinerycms-core (~> 3.0, >= 3.0.0)
@@ -351,7 +357,7 @@ DEPENDENCIES
   rails_12factor
   refinerycms!
   refinerycms-blog!
-  refinerycms-ckeditor
+  refinerycms-ckeditor!
   refinerycms-i18n!
   refinerycms-news!
   sass-rails (~> 4.0.3)

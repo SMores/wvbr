@@ -10,7 +10,7 @@ gem 'refinerycms-blog', git: 'https://github.com/refinery/refinerycms-blog', bra
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
 gem 'refinerycms', github: 'refinery/refinerycms', branch: "master"
 # Make the text editors in Refinery more user-friendly
-gem 'refinerycms-ckeditor'
+gem 'refinerycms-ckeditor', github: 'botandrose/refinerycms-ckeditor', branch: 'master'
 # Use for secure login
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
