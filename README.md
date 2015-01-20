@@ -4,7 +4,9 @@ This is the Rails App for 93.5 WVBR.
 
 For beginners, for more information on how Rails works, including a thorough beginner's tutorial, check out [Mark Hartl's awesome book](https://www.railstutorial.org/book).
 
-You must have Postgres installed locally to run this app locally! [Here is a link for Mac OS X](http://postgresapp.com/). Run `rake db:create`
+Make sure you have the [Heroku toolbelt](https://toolbelt.heroku.com/) and Git installed.
+
+You must have Postgres installed locally to run this app locally! [Here is a link for Mac OS X](http://postgresapp.com/). Run `rake db:create RAILS_ENV='development'` to create the db on your local machine, and then `heroku pg:pull HEROKU_POSTGRESQL_RED wvbr_dev --app wvbr` to populate it with the data from the server.
 
 This app primarily utilizes [Refinery](http://refinerycms.com) for content management. Check out the [guides](http://refinerycms.com/guides) for some help getting started. Useful information will be documented here:
 
