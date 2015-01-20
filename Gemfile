@@ -17,7 +17,11 @@ gem 'rails', '4.1.5'
 group :development, :test do
   gem 'sqlite3'
 end
-# Use SCSS for stylesheets
+# Use Postgres on Heroku
+group :production do
+  gem 'pg'
+end
+# Use Sass for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

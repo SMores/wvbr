@@ -1,18 +1,22 @@
-<%= raw @page.content_for(:banner_ad) %>
-<div>
-  <h3>Now Playing</h3>
+<div class='ad'>
+  <%= raw @page.content_for(:banner_ad) %>
+</div>
+<div id="now_playing" class="home_box side">
+  <h2>Now Playing</h2>
   <p>This should be currently playing stuff and a link to history</p>
 </div>
-<div>
-  <h3>WVBR News</h3>
+<div id="news" class="home_box main">
+  <h2><%= link_to "WVBR News", '/news' %></h2>
   <%= render partial: 'refinery/news/items/recent_posts' %>
 </div>
-<div>
-  <h3>Ithaca Sports</h3>
+<div id="sports" class="home_box side">
+  <h2><%= link_to "Ithaca Sports", '/sports' %></h2>
   <%= render partial: 'refinery/blog/shared/post', collection: @sports %>
 </div>
-<div>
-  <h3><%= link_to "From Our DJs", Refinery::Blog.page_url %></h3>
+<div id="blog" class="home_box main">
+  <h2><%= link_to "From Our DJs", Refinery::Blog.page_url %></h2>
   <%= render partial: 'refinery/blog/shared/post', collection: @posts %>
 </div>
-<%= raw @page.content_for(:footer_ad) %>
+<div class="ad">
+  <%= raw @page.content_for(:footer_ad) %>
+</div>

@@ -1,0 +1,7 @@
+<h1 id='logo'>
+  <%= link_to refinery.root_path do %>
+    <%= image_tag "guitar_logo.png" %>
+    <%= Refinery::Core.site_name %>
+  <% end %>
+</h1>
+<%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>

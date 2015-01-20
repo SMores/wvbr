@@ -1,0 +1,89 @@
+@import vars
+
+*, *:before, *:after
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+body
+  font-family: Helvetica
+  margin: 0
+  background: rgba(225,225,225,1)
+
+header#header
+  min-width: 720px
+  -webkit-box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
+  -moz-box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
+  box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
+  padding-top: 100px
+  background: linear-gradient(rgba(50,5,5,0.5), rgba(50,5,5,0.5)), image-url('banner.jpg')
+  background-size: 2400px
+  background-position: center 80%
+  border-bottom: solid #fff thin
+  #logo
+    max-width: 800px
+    margin: 0 auto
+    font-size: 600%
+    text-align: center
+    a
+      margin-left: 0
+      color: rgba(170,10,10,1)
+      // this is used for a white stroke on the logo
+      text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff
+      text-decoration: none
+    img
+      height: 70px
+      margin-right: 0
+  nav ul
+    max-width: 800px
+    margin: 0 auto
+    padding: 0
+    list-style: none
+    font-size: 90%
+    li
+      float: left
+      width: 12.5%
+      text-align: center
+      line-height: 21px
+      a
+        border-right: thin white solid
+        color: white
+        display: block
+        padding: 5px 10px
+        text-decoration: none
+        &:hover
+          background-color: #8F8F8F
+      ul
+        display: none
+      &:hover
+        ul
+          background-color: #D6D6D6
+          display: block
+          position: absolute
+          width: inherit
+          li
+            float: none
+            width: 100%
+            a
+              border: none
+              color: black
+    .selected a
+      color: #8F8F8F
+    .last a
+      border: none
+
+#page
+  color: $body-color
+  min-width: 720px
+  max-width: 1000px
+  margin: 0 auto
+  padding: 0 5%
+  section:after
+    display: none 
+  p
+    margin: 0
+  .ad
+    width: 80%
+    margin: 10px auto
+    img
+      width: 100%

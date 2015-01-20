@@ -21,3 +21,9 @@ If you find the need to overwrite a particular view, simply run `rake refinery:o
 
 *note:* If the view that you wish to override is within a Refinery engine (say the Blog engine, for example), you'll find it within `refinery/blog/some_view`.
 The full command for the form for a new blog post in the admin center, for example, would be `rake refinery:override view=refinery/blog/admin/posts/_form`. The full path for any file can be found at the respective engine's GitHub repo (for Blog, that would be [https://github.com/refinery/refinerycms-blog](https://github.com/refinery/refinerycms-blog)). These are all listed in the Gemfile.
+
+Notes about the code
+--------------------
+* It's less than ideal, but throughout the codebase, a Refinery::Blog::Category is the model for the Shows on the frontend. This is probably something that can (and maybe should) be refactored in the future.
+
+* On a similar note, Sports is a "special" show in that it doesn't appear listed with other shows, and any post with the Sports show will show up on the Sports page.
