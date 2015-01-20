@@ -23,6 +23,7 @@ end
 group :production do
   gem 'pg'
   gem 'fog'
+  gem 'rails_12factor'
 end
 # Use Sass for stylesheets
 gem 'sass-rails', '~> 4.0.3'
