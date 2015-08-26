@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141226212239) do
+ActiveRecord::Schema.define(version: 20150727030656) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "refinery_blog_categories", force: true do |t|
     t.string   "title"
@@ -20,15 +23,15 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "slug"
   end
 
-  add_index "refinery_blog_categories", ["id"], name: "index_refinery_blog_categories_on_id"
-  add_index "refinery_blog_categories", ["slug"], name: "index_refinery_blog_categories_on_slug"
+  add_index "refinery_blog_categories", ["id"], name: "index_refinery_blog_categories_on_id", using: :btree
+  add_index "refinery_blog_categories", ["slug"], name: "index_refinery_blog_categories_on_slug", using: :btree
 
   create_table "refinery_blog_categories_blog_posts", force: true do |t|
     t.integer "blog_category_id"
     t.integer "blog_post_id"
   end
 
-  add_index "refinery_blog_categories_blog_posts", ["blog_category_id", "blog_post_id"], name: "index_blog_categories_blog_posts_on_bc_and_bp"
+  add_index "refinery_blog_categories_blog_posts", ["blog_category_id", "blog_post_id"], name: "index_blog_categories_blog_posts_on_bc_and_bp", using: :btree
 
   create_table "refinery_blog_category_translations", force: true do |t|
     t.integer  "refinery_blog_category_id", null: false
@@ -39,8 +42,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "slug"
   end
 
-  add_index "refinery_blog_category_translations", ["locale"], name: "index_refinery_blog_category_translations_on_locale"
-  add_index "refinery_blog_category_translations", ["refinery_blog_category_id"], name: "index_a0315945e6213bbe0610724da0ee2de681b77c31"
+  add_index "refinery_blog_category_translations", ["locale"], name: "index_refinery_blog_category_translations_on_locale", using: :btree
+  add_index "refinery_blog_category_translations", ["refinery_blog_category_id"], name: "index_a0315945e6213bbe0610724da0ee2de681b77c31", using: :btree
 
   create_table "refinery_blog_comments", force: true do |t|
     t.integer  "blog_post_id"
@@ -53,8 +56,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.datetime "updated_at"
   end
 
-  add_index "refinery_blog_comments", ["blog_post_id"], name: "index_refinery_blog_comments_on_blog_post_id"
-  add_index "refinery_blog_comments", ["id"], name: "index_refinery_blog_comments_on_id"
+  add_index "refinery_blog_comments", ["blog_post_id"], name: "index_refinery_blog_comments_on_blog_post_id", using: :btree
+  add_index "refinery_blog_comments", ["id"], name: "index_refinery_blog_comments_on_id", using: :btree
 
   create_table "refinery_blog_post_translations", force: true do |t|
     t.integer  "refinery_blog_post_id", null: false
@@ -68,8 +71,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "title"
   end
 
-  add_index "refinery_blog_post_translations", ["locale"], name: "index_refinery_blog_post_translations_on_locale"
-  add_index "refinery_blog_post_translations", ["refinery_blog_post_id"], name: "index_refinery_blog_post_translations_on_refinery_blog_post_id"
+  add_index "refinery_blog_post_translations", ["locale"], name: "index_refinery_blog_post_translations_on_locale", using: :btree
+  add_index "refinery_blog_post_translations", ["refinery_blog_post_id"], name: "index_refinery_blog_post_translations_on_refinery_blog_post_id", using: :btree
 
   create_table "refinery_blog_posts", force: true do |t|
     t.string   "title"
@@ -87,9 +90,9 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "slug"
   end
 
-  add_index "refinery_blog_posts", ["access_count"], name: "index_refinery_blog_posts_on_access_count"
-  add_index "refinery_blog_posts", ["id"], name: "index_refinery_blog_posts_on_id"
-  add_index "refinery_blog_posts", ["slug"], name: "index_refinery_blog_posts_on_slug"
+  add_index "refinery_blog_posts", ["access_count"], name: "index_refinery_blog_posts_on_access_count", using: :btree
+  add_index "refinery_blog_posts", ["id"], name: "index_refinery_blog_posts_on_id", using: :btree
+  add_index "refinery_blog_posts", ["slug"], name: "index_refinery_blog_posts_on_slug", using: :btree
 
   create_table "refinery_images", force: true do |t|
     t.string   "image_mime_type"
@@ -104,34 +107,6 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "image_alt"
   end
 
-  create_table "refinery_news_item_translations", force: true do |t|
-    t.integer  "refinery_news_item_id", null: false
-    t.string   "locale",                null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "title"
-    t.text     "body"
-    t.string   "source"
-    t.string   "slug"
-  end
-
-  add_index "refinery_news_item_translations", ["locale"], name: "index_refinery_news_item_translations_on_locale"
-  add_index "refinery_news_item_translations", ["refinery_news_item_id"], name: "index_refinery_news_item_translations_fk"
-
-  create_table "refinery_news_items", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "publish_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "image_id"
-    t.datetime "expiration_date"
-    t.string   "source"
-    t.string   "slug"
-  end
-
-  add_index "refinery_news_items", ["id"], name: "index_refinery_news_items_on_id"
-
   create_table "refinery_page_part_translations", force: true do |t|
     t.integer  "refinery_page_part_id", null: false
     t.string   "locale",                null: false
@@ -140,8 +115,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.text     "body"
   end
 
-  add_index "refinery_page_part_translations", ["locale"], name: "index_refinery_page_part_translations_on_locale"
-  add_index "refinery_page_part_translations", ["refinery_page_part_id"], name: "index_refinery_page_part_translations_on_refinery_page_part_id"
+  add_index "refinery_page_part_translations", ["locale"], name: "index_refinery_page_part_translations_on_locale", using: :btree
+  add_index "refinery_page_part_translations", ["refinery_page_part_id"], name: "index_refinery_page_part_translations_on_refinery_page_part_id", using: :btree
 
   create_table "refinery_page_parts", force: true do |t|
     t.integer  "refinery_page_id"
@@ -152,8 +127,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.datetime "updated_at"
   end
 
-  add_index "refinery_page_parts", ["id"], name: "index_refinery_page_parts_on_id"
-  add_index "refinery_page_parts", ["refinery_page_id"], name: "index_refinery_page_parts_on_refinery_page_id"
+  add_index "refinery_page_parts", ["id"], name: "index_refinery_page_parts_on_id", using: :btree
+  add_index "refinery_page_parts", ["refinery_page_id"], name: "index_refinery_page_parts_on_refinery_page_id", using: :btree
 
   create_table "refinery_page_translations", force: true do |t|
     t.integer  "refinery_page_id", null: false
@@ -166,8 +141,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "slug"
   end
 
-  add_index "refinery_page_translations", ["locale"], name: "index_refinery_page_translations_on_locale"
-  add_index "refinery_page_translations", ["refinery_page_id"], name: "index_refinery_page_translations_on_refinery_page_id"
+  add_index "refinery_page_translations", ["locale"], name: "index_refinery_page_translations_on_locale", using: :btree
+  add_index "refinery_page_translations", ["refinery_page_id"], name: "index_refinery_page_translations_on_refinery_page_id", using: :btree
 
   create_table "refinery_pages", force: true do |t|
     t.integer  "parent_id"
@@ -189,11 +164,11 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.datetime "updated_at"
   end
 
-  add_index "refinery_pages", ["depth"], name: "index_refinery_pages_on_depth"
-  add_index "refinery_pages", ["id"], name: "index_refinery_pages_on_id"
-  add_index "refinery_pages", ["lft"], name: "index_refinery_pages_on_lft"
-  add_index "refinery_pages", ["parent_id"], name: "index_refinery_pages_on_parent_id"
-  add_index "refinery_pages", ["rgt"], name: "index_refinery_pages_on_rgt"
+  add_index "refinery_pages", ["depth"], name: "index_refinery_pages_on_depth", using: :btree
+  add_index "refinery_pages", ["id"], name: "index_refinery_pages_on_id", using: :btree
+  add_index "refinery_pages", ["lft"], name: "index_refinery_pages_on_lft", using: :btree
+  add_index "refinery_pages", ["parent_id"], name: "index_refinery_pages_on_parent_id", using: :btree
+  add_index "refinery_pages", ["rgt"], name: "index_refinery_pages_on_rgt", using: :btree
 
   create_table "refinery_resources", force: true do |t|
     t.string   "file_mime_type"
@@ -214,8 +189,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.integer "role_id"
   end
 
-  add_index "refinery_roles_users", ["role_id", "user_id"], name: "index_refinery_roles_users_on_role_id_and_user_id"
-  add_index "refinery_roles_users", ["user_id", "role_id"], name: "index_refinery_roles_users_on_user_id_and_role_id"
+  add_index "refinery_roles_users", ["role_id", "user_id"], name: "index_refinery_roles_users_on_role_id_and_user_id", using: :btree
+  add_index "refinery_roles_users", ["user_id", "role_id"], name: "index_refinery_roles_users_on_user_id_and_role_id", using: :btree
 
   create_table "refinery_settings", force: true do |t|
     t.string   "name"
@@ -230,7 +205,7 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "title"
   end
 
-  add_index "refinery_settings", ["name"], name: "index_refinery_settings_on_name"
+  add_index "refinery_settings", ["name"], name: "index_refinery_settings_on_name", using: :btree
 
   create_table "refinery_user_plugins", force: true do |t|
     t.integer "user_id"
@@ -238,8 +213,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.integer "position"
   end
 
-  add_index "refinery_user_plugins", ["name"], name: "index_refinery_user_plugins_on_name"
-  add_index "refinery_user_plugins", ["user_id", "name"], name: "index_refinery_user_plugins_on_user_id_and_name", unique: true
+  add_index "refinery_user_plugins", ["name"], name: "index_refinery_user_plugins_on_name", using: :btree
+  add_index "refinery_user_plugins", ["user_id", "name"], name: "index_refinery_user_plugins_on_user_id_and_name", unique: true, using: :btree
 
   create_table "refinery_users", force: true do |t|
     t.string   "username",               null: false
@@ -259,8 +234,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.string   "full_name"
   end
 
-  add_index "refinery_users", ["id"], name: "index_refinery_users_on_id"
-  add_index "refinery_users", ["slug"], name: "index_refinery_users_on_slug"
+  add_index "refinery_users", ["id"], name: "index_refinery_users_on_id", using: :btree
+  add_index "refinery_users", ["slug"], name: "index_refinery_users_on_slug", using: :btree
 
   create_table "seo_meta", force: true do |t|
     t.integer  "seo_meta_id"
@@ -271,8 +246,8 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.datetime "updated_at"
   end
 
-  add_index "seo_meta", ["id"], name: "index_seo_meta_on_id"
-  add_index "seo_meta", ["seo_meta_id", "seo_meta_type"], name: "id_type_index_on_seo_meta"
+  add_index "seo_meta", ["id"], name: "index_seo_meta_on_id", using: :btree
+  add_index "seo_meta", ["seo_meta_id", "seo_meta_type"], name: "id_type_index_on_seo_meta", using: :btree
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
@@ -284,13 +259,13 @@ ActiveRecord::Schema.define(version: 20141226212239) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
 
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
 end

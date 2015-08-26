@@ -12,5 +12,5 @@ Refinery::Blog.configure do |config|
   # config.page_url = "/blog"
   
   # If you're grafting onto an existing app, change this to your User class
-  # Refinery::Blog.user_class = "Refinery::User"
+  # Refinery::Blog.user_class = "Refinery::Authentication::Devise::User"
 end

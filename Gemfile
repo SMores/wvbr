@@ -2,21 +2,20 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 
-# Refinery news engine
-gem "refinerycms-news", git: 'https://github.com/refinery/refinerycms-news', branch: 'master'
 # Refinery blogging engine
-gem 'refinerycms-blog', git: 'https://github.com/refinery/refinerycms-blog', branch: 'master'
+gem 'refinerycms-blog', git: 'https://github.com/refinery/refinerycms-blog', ref: 'a17ffb790884'
 # Use for content management
-gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
-gem 'refinerycms', github: 'refinery/refinerycms', branch: "master"
+gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', ref: '6d7f6aef7c16'
+gem 'refinerycms', github: 'refinery/refinerycms', ref: "f453944e17ab"
+gem 'refinerycms-wymeditor', '1.0.3'
 # Make the text editors in Refinery more user-friendly
-gem 'refinerycms-ckeditor', github: 'botandrose/refinerycms-ckeditor', branch: 'master'
+gem 'refinerycms-ckeditor', github: 'botandrose/refinerycms-ckeditor', ref: 'bcfde5802908'
 # Use for secure login
-gem 'devise'
+gem 'devise', '~> 3.4'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 # Use Postgres as the database for Active Record
-gem 'pg'
+gem 'pg', '~> 0.18'
 # Use Heroku reqs
 group :production do
   gem 'fog'

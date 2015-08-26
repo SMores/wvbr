@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   # We ask that you don't use the :as option here, as Refinery relies on it being the default of "refinery"
   mount Refinery::Core::Engine, at: '/'
   Refinery::Core::Engine.routes.prepend do
-    get '/music/personalities', :to => 'pages#personalities'
+    get '/music/personalities', to: 'pages#personalities'
     get '/music/shows', to: 'pages#shows'
     get '/sports', to: 'pages#sports'
+    get '/news', to: 'pages#news'
   end
+  get '/news', to: 'pages#news'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

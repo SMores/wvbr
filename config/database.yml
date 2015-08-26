@@ -9,6 +9,7 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
+  host: localhost
 
 development:
   <<: *default
@@ -25,6 +26,5 @@ test:
 
 production:
   <<: *default
-  host: localhost
   username: user
   database: app-dev

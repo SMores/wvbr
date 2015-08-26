@@ -12,11 +12,11 @@ module Refinery
 
     # This action is usually accessed with the root path, normally '/'
     def home
-      @items = Refinery::News::Item.latest(5)
       # Grab 50 posts so that you'll always have at loast 5 sports posts (hopefully)
       all_posts = Refinery::Blog::Post.where("published_at < ?", Time.now).limit(50)
-      @posts = all_posts.reject { |p| p.categories.first && p.categories.first.title == "Sports" }
+      @posts = all_posts.reject { |p| p.categories.first && (p.categories.first.title == "Sports" || p.categories.first.title == "News") }
       @sports = all_posts.select { |p| p.categories.first && p.categories.first.title == "Sports" }
+      @news = all_posts.select { |p| p.categories.first && p.categories.first.title == "News" }
       render_with_templates?
     end
 
@@ -50,6 +50,12 @@ module Refinery
     def sports
       posts = Refinery::Blog::Post.all
       @sports = posts.select { |p| p.categories.first && p.categories.first.title == "Sports" }
+      render_with_templates?
+    end
+
+    def news
+      posts = Refinery::Blog::Post.all
+      @newss = posts.select { |p| p.categories.first && p.categories.first.title == "News" }
       render_with_templates?
     end
 

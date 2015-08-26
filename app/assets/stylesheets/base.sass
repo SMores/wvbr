@@ -1,20 +1,28 @@
 @import vars
 
+@font-face
+  font-family: "Slabo"
+  src: font-url('Slabo27px-Regular.ttf')
+
+@font-face
+  font-family: "Montserrat"
+  src: font-url('Montserrat-Regular.ttf')
+
 *, *:before, *:after
   -moz-box-sizing: border-box
   -webkit-box-sizing: border-box
   box-sizing: border-box
 
 body
-  font-family: Helvetica
+  font-family: "Montserrat"
   margin: 0
-  background: rgba(225,225,225,1)
+  background: #F3F1F1
 
 header#header
   min-width: 720px
-  -webkit-box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
-  -moz-box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
-  box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
+  // -webkit-box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
+  // -moz-box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
+  // box-shadow: 0 0 125px 40px rgba(0,0,0,0.65)
   padding-top: 100px
   background: linear-gradient(rgba(50,5,5,0.5), rgba(50,5,5,0.5)), image-url('banner.jpg')
   background-size: 2400px
@@ -73,6 +81,7 @@ header#header
       border: none
 
 #page
+  background-color: white
   color: $body-color
   min-width: 720px
   max-width: 1000px
