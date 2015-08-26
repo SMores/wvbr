@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.2'
+ruby '2.1.5'
 
 # Refinery blogging engine
 gem 'refinerycms-blog', git: 'https://github.com/refinery/refinerycms-blog', ref: 'a17ffb790884'
